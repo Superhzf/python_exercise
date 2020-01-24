@@ -8,9 +8,11 @@ class Solution:
         if len(nums) == 1:
             return nums
 
-        lastNonZeroFoundAt = 0
+        lastZeroFoundAt = 0
         for index,num in enumerate(nums):
             if nums[index] != 0:
-                nums[lastNonZeroFoundAt], nums[index] = nums[index], nums[lastNonZeroFoundAt]
-                lastNonZeroFoundAt+=1
-# this method is fast for consecutive members
+                # swap nums[index] and nums[lastZeroFoundAt]
+                nums[lastZeroFoundAt], nums[index] = nums[index], nums[lastZeroFoundAt]
+                lastZeroFoundAt+=1
+# this method is fast for consecutive zeros
+# [1,0,0,3,12]->[1,0,0,3,12]->[1,3,0,0,12]->[1,3,12,0,0]
