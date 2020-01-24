@@ -23,7 +23,7 @@ class Solution:
         for key in nums1_dic.keys(): #Goes through every key in the dictionary
             if key in nums2_dic.keys(): # Looking for a matched key in the second array
                 common = min(nums1_dic[key],nums2_dic[key]) # The minimum time this number appears between these two arrays should be the number of time the number(say 2) appears in both arrays
-                for k in range(common):
+                for _ in range(common):
                     intersect.append(key) # adding the key (say 2), as many times it appears in both array (which should be = common)
 
         return intersect
