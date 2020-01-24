@@ -10,4 +10,5 @@ class Solution:
                 else:
                     num_index_dict[num] = index
         return False
+# dynamic programming:
 # 把每个元素的位置记录在dict中方便后面遇到相同元素的时候查询index的差值
