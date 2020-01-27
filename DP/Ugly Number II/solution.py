@@ -4,6 +4,9 @@ class Solution:
         ugly_num_list = [0]*n
 
         ugly_num_list[0] = 1
+        # ugly_num_list 中的数是有2，3，5不断的和2，3，5以及他们的乘积再相乘得到的
+        # 每一个ugly number都是上述乘积集中，比上个ugly number大的最小的数
+        # i2表示ugl_num_list中最近一次和2相乘的ugly number的坐标
         i2 = 0
         i3 = 0
         i5 = 0
@@ -28,3 +31,4 @@ class Solution:
                 next_multiple_of_5 = ugly_num_list[i5] * 5
 
         return ugly_num_list[-1]
+# 1, 2, 3, 4, 5, 6, 8, 9, 10, 12
