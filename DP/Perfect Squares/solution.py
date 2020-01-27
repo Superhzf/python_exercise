@@ -7,8 +7,11 @@ class Solution:
         dp = [0,1,2,3]
 
         for i in range(4,n+1):
-            dp.append(i)
+            dp.append(i) # at least we need i square numbers to sum up to i
 
+            # the reason to iterate from 1 to int(ceil(sqrt(i))) + 1 instead of
+            # just using int(sqrt(i)) is that, int(sqrt(i)) is not necessarily
+            # the best number
             for x in range(1,int(ceil(sqrt(i))) + 1):
                 temp = x*x
                 if temp>i:
@@ -22,6 +25,7 @@ class Solution:
         DP = [0]
         for i in range(1,n+1): DP.append(1 + min(DP[i-j*j] for j in range(int(i**.5),0,-1)))
         return DP[n]
+
 
 # dp.append(i) means at most we have i ways (1+1+1+...)
 # dp[i] shows the least number of perfect square numbers sum to dp[i]
