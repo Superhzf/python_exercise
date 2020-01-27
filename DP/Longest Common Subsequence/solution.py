@@ -16,3 +16,10 @@ class Solution:
                     dp[i][j] = max(dp[i-1][j],dp[i][j-1])
 
         return dp[-1][-1]
+# dp[i][j] means longest common subquence between text1[:i] and text2[:j]
+# For example, text1 = 'abcde', text2 = 'ace'
+#     a b c d e
+#   0 0 0 0 0 0
+# a 0 1 1 1 1 1
+# c 0 1 1 2
+# d 0
