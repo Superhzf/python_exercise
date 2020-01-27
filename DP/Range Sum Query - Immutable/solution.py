@@ -18,3 +18,5 @@ class NumArray:
 # use self.sum[i] shows the sum of nums from index 0 to index i
 # if we want to know the sum from index i to index j
 # just subtract self.sum[i-1] from self.sum[j]
+# This is a DP problem because we store self.sum[i] into a list instead of
+# calculating them every time
