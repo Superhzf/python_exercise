@@ -17,3 +17,4 @@ class Solution:
 
 # we have to take negative product at each step
 # because the product of two negatives could be positive later
+# [2,3,-2,4]
