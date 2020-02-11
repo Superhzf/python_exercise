@@ -7,7 +7,6 @@ Note that although employee 3 is also a subordinate of employee 1, the relations
 Now given the employee information of a company, and an employee id, you need to return the total importance value of this employee and all his subordinates.
 
 Example 1:
-
 Input: [[1, 5, [2, 3]], [2, 3, []], [3, 3, []]], 1
 Output: 11
 Explanation:
