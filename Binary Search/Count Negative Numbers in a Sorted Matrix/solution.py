@@ -17,3 +17,5 @@
 # +-----
 # +----
 # The solution is to count - from the top right corner
+# This is obviously not a binary search problem, I don't know why it is
+# classified as a binary search problem per Leetcode
