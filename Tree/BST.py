@@ -26,3 +26,15 @@ def search_BST(root,key):
     if key < root.key and root.left is not None:
         return search_BST(root.left,key)
     return False
+
+def search_BST_iterative(root,key):
+    queue = [root]
+    while queue:
+        current = queue.pop(0)
+        if current.key == key:
+            return True
+        elif key > current.key and current.right is not None:
+            queue.append(current.right)
+        elif key < current.key and current.left is not None:
+            queue.append(current.left)
+    return False
