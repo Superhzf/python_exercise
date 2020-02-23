@@ -38,3 +38,7 @@ def search_BST_iterative(root,key):
         elif key < current.key and current.left is not None:
             queue.append(current.left)
     return False
+
+# delete
+# deleteing include three situations
+# TODO
