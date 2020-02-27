@@ -1,4 +1,4 @@
-arr = [12, 11, 13, 5, 6, 7]
+arr = [7,13,12, 11, 5, 6]
 # 1 merge sort
 # time complexity: worst, average, and best: O(nlog(n)), extra space:O(n)
 def mergeSort(arr):
@@ -44,4 +44,14 @@ def selectionSort(arr):
             if arr[j]< arr[min_idx]:
                 min_idx = j
         arr[i],arr[min_idx] = arr[min_idx],arr[i]
+    return arr
+
+# Bubble sort
+def bubbleSort(arr):
+    n = len(arr)
+    for i in range(n):
+        # after each round, the last element is always the biggest one
+        for j in range(0,n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j],arr[j+1] = arr[j+1],arr[j]
     return arr
