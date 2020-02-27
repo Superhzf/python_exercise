@@ -1,4 +1,12 @@
 arr = [7,13,12, 11, 5, 6]
+# sort two lists based on one
+list1 = np.array([3,2,4,1])
+list2 = np.array(["three","two","four","one"])
+idx   = np.argsort(list1)
+
+list1 = np.array(list1)[idx]
+list2 = np.array(list2)[idx]
+
 # 1 merge sort
 # time complexity: worst, average, and best: O(nlog(n)), extra space:O(n)
 def mergeSort(arr):
@@ -66,3 +74,5 @@ def bubbleSortIter(arr):
         except:
             pass
     return arr
+
+# Insertion sort
