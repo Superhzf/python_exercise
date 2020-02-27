@@ -55,6 +55,7 @@ def selectionSort(arr):
     return arr
 
 # Bubble sort
+# time complexity: O(n^2), extra space O(1)
 def bubbleSort(arr):
     n = len(arr)
     for i in range(n):
@@ -102,3 +103,6 @@ def selectionSortRecursive(arr,n):
         j=j-1
     arr[j+1] = last
     return arr
+
+# Quick sort
+# time complexity: O(nlog(n)), extra space: O()
