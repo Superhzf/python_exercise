@@ -78,7 +78,7 @@ def bubbleSortIter(arr):
 
 # Insertion sort
 # time complexity: O(n^2), extra space: O(1)
-def selectionSort(arr):
+def insertSort(arr):
     for i in range(1,len(arr)):
         key = arr[i]
         j = i-1
@@ -88,7 +88,7 @@ def selectionSort(arr):
             j-=1
         arr[j+1]=key
 
-def selectionSortRecursive(arr,n):
+def insertionSortRecursive(arr,n):
     # base case
     if n<=1:
         return
