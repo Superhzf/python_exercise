@@ -5,8 +5,8 @@ Matrix = List[List[int]]
 class MinHeapNode:
     def __init__(self,el,i,j):
         self.element = el # the element to be sorted
-        self.i = i # index of array from which element is taken
-        self.j = j # index of next element to be picked from array
+        self.i = i # index of array (in total k) from which element is taken
+        self.j = j # index of next element to be picked from that array
 
 class MinHeap:
     def __init__(self,ar: List[MinHeapNode],size: int):
@@ -46,6 +46,8 @@ class MinHeap:
         self.min_heapify(0)
 
 def mergeKSortedArrays(arr:Matrix,k:int):
+    # k: the number of sorted arrays
+    # arr: k sorted arrays to be merged
     h_arr = []
     result_size = 0
     for i in range(len(arr)):
