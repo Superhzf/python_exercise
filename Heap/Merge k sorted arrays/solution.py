@@ -1,3 +1,6 @@
+# Time complexity: O(nlog(k))
+# k: number of sorted arrays, n: total elements across all arrays
+# extra space: O(k)
 import sys
 from typing import List
 Matrix = List[List[int]]
@@ -68,3 +71,12 @@ def mergeKSortedArrays(arr:Matrix,k:int):
         min_heap.replace_min(root)
 
     return result
+
+if __name__ == '__main__':
+    arr = [
+        [2, 6, 12, 34,36],
+        [1, 9, 20, 1000],
+        [23, 34, 90, 2000]
+    ]
+    print('Merged Array is:')
+    merge_k_sorted_arrays(arr, len(arr))
