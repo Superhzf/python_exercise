@@ -122,3 +122,39 @@ def quickSort(arr,low,high):
 
         quickSort(arr,low,pi-1)
         quickSort(arr,pi+1,high)
+
+# Heap sort
+# time complexity: O(nlogn)
+def heapify(arr,n,i):
+    # To heapify subtree rooted at index i
+    # n is the size of heap
+    largest = i # initialize largest as root
+    l = 2 * i + 1 # left child
+    r = 2 * i + 2 # right child
+
+    if l < n and arr[i] < arr[l]:
+        largest = l
+
+    if r < n and arr[largest] < arr[r]:
+        largest = r
+
+    # change root if needed
+    if largest != i:
+        arr[i],arr[largest] = arr[largest],arr[i]
+
+        heapify(arr,n,largest)
+
+
+def heapSort(arr):
+    n = len(arr)
+
+    # Build a max heap from arr
+    for i in range(n,-1,-1):
+        heapify(arr,n,i)
+
+    # do some sorting
+    for i in range(n-1,0,-1):
+        arr[i],arr[0] = arr[0],arr[i]
+        heapify(arr,i,0)
+
+    return arr
