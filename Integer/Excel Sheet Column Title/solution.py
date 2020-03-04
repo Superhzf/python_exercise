@@ -13,3 +13,13 @@ class Solution:
 
 
 # This is like 26 jinzhi problem, but a little bit different
+
+# Below is to convert an excel string to an integer
+class Solution:
+    def titleToNumber(self, s: str) -> int:
+        total = 0
+        num = 0
+        for sub_s in s[::-1]:
+            total = total+(26**num)*(ord(sub_s)-64)
+            num += 1
+        return total
