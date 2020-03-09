@@ -24,3 +24,4 @@ class Solution:
 # you must store its previous element beforehand.
 # You also need another pointer to store the next node before changing the reference.
 # Do not forget to return the new head reference at the end!
+# https://www.geeksforgeeks.org/reverse-a-linked-list/
