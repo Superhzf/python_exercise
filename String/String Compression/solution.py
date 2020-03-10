@@ -11,3 +11,8 @@ class Solution(object):
                         write += 1
                 anchor = read + 1
         return write
+
+# The idea of the method is to use two pointers
+# one is write: the position to write number or char
+# The other one is anchor: the start position of the contiguous group of chars
+# we are currently reading
