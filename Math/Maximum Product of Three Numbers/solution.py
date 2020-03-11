@@ -8,12 +8,18 @@ class Solution:
 
         for num in nums:
             if num<min1:
+                # Here the idea is that min1 is the least number, if num is
+                # smaller than min1, then min1 becomes the second least which
+                # is min2
                 min2 = min1
                 min1 = num
             elif num <= min2:
                 min2 = num
 
             if num>=max1:
+                # Here the idea is that max1 is the largest number, if num is
+                # larger than max1, then max1 becomes the second largest which
+                # is max2
                 max3 = max2
                 max2 = max1
                 max1 = num
