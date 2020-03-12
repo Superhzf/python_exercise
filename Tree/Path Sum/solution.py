@@ -18,7 +18,5 @@ class Solution:
             if (root.right != None):
                 if (self.hasPathSum(root.right,sum-root.val)):
                     return True
-            else:
-                return False
-        return False
+            return False
 # the key here is to use sum-root.val
