@@ -13,9 +13,9 @@ class Solution:
             if k == 0:
                 if j in dt and dt[j] > 1:
                     ans += 1
-                    del dt[j]
+                    del dt[j] # delete all of them because the pair should be unique
             else:
-                if j-k in dt:
+                if j-k in dt: # here is j-k only instead of k-j because we will meet k-j later
                     ans += 1
                     del dt[j-k]
         return ans
