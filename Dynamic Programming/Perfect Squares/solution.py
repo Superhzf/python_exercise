@@ -25,7 +25,12 @@ class Solution:
     def numSquares(self, n: int) -> int:
         dp = [0]
         for i in range(1,n+1):
-            dp.append(1 + min([dp[i-j*j] for j in range(int(i**.5),0,-1)]))
+            candidate_list = []
+            for j in range(int(sqrt(i)),0,-1):
+                candidate_list.append(dp[i-j*j])
+
+            dp.append(1+min(candidate_list))
+
         return dp[n]
 
 
