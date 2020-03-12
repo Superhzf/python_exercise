@@ -28,7 +28,7 @@ class Solution:
             candidate_list = []
             for j in range(int(sqrt(i)),0,-1):
                 candidate_list.append(dp[i-j*j])
-
+            # 1 means j*j
             dp.append(1+min(candidate_list))
 
         return dp[n]
