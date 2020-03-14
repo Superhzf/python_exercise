@@ -22,5 +22,5 @@ def getSum(self, a: int, b: int) -> int:
     return a&mask if b > mask else a
 
 
-#more explanation
-# https://leetcode.com/problems/sum-of-two-integers/discuss/167931/Solution-with-ACTUAL-explanation-(how-you-would-work-this-out)
+#more explanation about mask
+# https://leetcode.com/problems/sum-of-two-integers/discuss/489210/Read-this-if-you-want-to-learn-about-masks
