@@ -17,5 +17,6 @@ class Solution:
             if mark[i] and (i == 0 or not mark[i-1]):
                 ans.append("<b>")
             ans.append(S[i])
-            if mark[i] and (i == len(S) - 1 or not mark[i+1]): ans.append("</b>")
+            if mark[i] and (i == len(S) - 1 or not mark[i+1]):
+                ans.append("</b>")
         return "".join(ans)
