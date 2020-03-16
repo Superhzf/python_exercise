@@ -29,3 +29,4 @@ class Solution:
 
 # The idea is that fist store employees in a hash table (dict) for query
 # convenience. Then, find out all the importance by DFS
+# This is pretty much like a tree
