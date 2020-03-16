@@ -18,8 +18,8 @@ class Solution:
         minm = float("Inf")
         l.sort()
         for i in range(len(l)-1):
-            if abs(l[i]-l[i+1]) < minm:
-                minm = abs(l[i]-l[i+1])
+            if l[i+1]-l[i] < minm:
+                minm = l[i+1]-l[i]
         return minm
 
 # The idea is simple, just traverse the tree and sort the values
