@@ -8,18 +8,20 @@
 class Solution(object):
     def averageOfLevels(self, root):
         if root is None:
-            return []
+            return None
+        if root.left is None and root.right is None:
+            return [root.val]
 
         values_by_level = [[root]]
         for this_level in values_by_level:
             next_level = []
-            for c in this_level:
-                if c.left:
-                    next_level.append(c.left)
-                if c.right:
-                    next_level.append(c.right)
-            if len(next_level)>0:
+            for node in this_level:
+                if node.left is not None:
+                    next_level.append(node.left)
+                if node.right is not None:
+                    next_level.append(node.right)
+            if len(next_level) > 0:
                 values_by_level.append(next_level)
 
-        values = [[x.val for x in z ] for z in values_by_level]
-        return [sum(v) / float(len(v)) for v in values]
+        values = [[node.val for node in this_level] for this_level in values_by_level]
+        return [sum(value)/len(value) for value in values]
