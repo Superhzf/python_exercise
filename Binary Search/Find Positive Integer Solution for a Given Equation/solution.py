@@ -32,10 +32,10 @@ class Solution:
 
             else:
                 # pair (x, y) is a solution to f(x,y) = z
-                solution_pair.append( (x,y) )
+                solution_pair.append((x,y))
 
                 # make x bigger for next iteration
-                x += 1
+                x += 1 # or y -= 1, just choose one of them
 
         return solution_pair
 
