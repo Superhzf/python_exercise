@@ -1,25 +1,25 @@
 class Solution:
     def letterCasePermutation(self, S: str) -> List[str]:
-        def backtrack(i, cur):
+        def backtrack(i, curr): # i: starting point, curr: current list
             if i == len(S):
-                perms.append("".join(cur))
+                perms.append("".join(curr))
                 return
 
-            if cur[i].isdigit():
-                backtrack(i+1, cur)
+            if curr[i].isdigit():
+                backtrack(i+1, curr)
             else:
-                cur[i] = cur[i].upper()
-                backtrack(i+1, cur)
-                cur[i] = cur[i].lower()
-                backtrack(i+1, cur)
+                curr[i] = curr[i].upper()
+                backtrack(i+1, curr)
+                curr[i] = curr[i].lower()
+                backtrack(i+1, curr)
 
-        if not S:
+        if len(S) == 0:
             return []
 
         perms = []
-        cur = list(S)
-        backtrack(0, cur)
+        curr = list(S)
+        backtrack(0, curr)
         return perms
 
 # I don't understand why the first parameter of backtrack always plus 1
-# like backtrack(i+1,cur)
+# like backtrack(i+1,curr)
