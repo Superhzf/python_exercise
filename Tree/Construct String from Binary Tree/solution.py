@@ -12,7 +12,7 @@ class Solution:
 
         # None of left or right child exists
         if t.left is None and t.right is None:
-            return str(t.val)+""
+            return str(t.val)
 
         # Only the left child exists
         if t.right is None:
