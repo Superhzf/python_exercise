@@ -1,7 +1,7 @@
 # The question is that given a number n, determine whether it is
 # a prime number or not
 
-ddef isPrime(n):
+def isPrime(n):
     if n <= 1:
         return False
     if n <= 3:
