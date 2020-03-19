@@ -62,16 +62,16 @@ def preorder(root):
         res = res+ preorder(root.right)
     return res
 
-def preorder_iterate(root):
-    queue = [root]
+def preorderTra(root):
     res = []
-    while queue:
-        current = queue.pop(0)
-        res.append(current.key)
-        if current.left is not None:
-            queue.append(current.left)
-        if current.right is not None:
-            queue.append(current.right)
+    stack = [root]
+    while len(stack) > 0:
+        curr = stack.pop()
+        res.append(curr.val)
+        if curr.right is not None:
+            stack.append(curr.right)
+        if curr.left is not None:
+            stack.append(curr.left)
     return res
 
 # DFS: postorder: left, right, root
