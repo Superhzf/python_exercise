@@ -84,12 +84,9 @@ def postorder(root):
     return res
 
 def postorder_iterative(root):
-
     res = []
     # Create two stacks
     s1 = []
-    s2 = []
-
     # Push root to first stack
     s1.append(root)
 
@@ -107,11 +104,7 @@ def postorder_iterative(root):
             s1.append(node.left)
         if node.right:
             s1.append(node.right)
-
         # Print all elements of second stack
-    while s2:
-        node = s2.pop()
-        res.append(node.key)
-    return res
+    return res[::-1]
 
 # BFS vs DFS, when to use what?
