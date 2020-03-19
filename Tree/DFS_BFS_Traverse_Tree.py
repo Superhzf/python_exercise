@@ -21,7 +21,7 @@ def BFS(root):
     queue = []
     queue.append(root)
     while(queue):
-        temp = queue.pop(0)
+        temp = queue.pop(0) # We MUST use queue, stack does not work
         print (temp.key)
         if temp.left:
             queue.append(temp.left)
