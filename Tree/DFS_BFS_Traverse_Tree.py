@@ -2,7 +2,7 @@
 from typing import List
 class Node:
     def __init__(self,x):
-        self.key = x
+        self.val = x
         self.left = None
         self.right = None
 
@@ -24,7 +24,7 @@ def BFS(root):
     queue.append(root)
     while(queue):
         temp = queue.pop(0) # We MUST use queue, stack does not work
-        print (temp.key)
+        print (temp.val)
         if temp.left:
             queue.append(temp.left)
         if temp.right:
@@ -48,7 +48,7 @@ def inorder(root):
     res = []
     if root:
         res = inorder(root.left)
-        res.append(root.key)
+        res.append(root.val)
         res = res + inorder(root.right)
     return res
 
@@ -62,7 +62,7 @@ def inorder_iterate(root):
             current = current.left
         elif stack:
             current = stack.pop()
-            res.append(current.key)
+            res.append(current.val)
             current = current.right
         else:
             break
@@ -72,7 +72,7 @@ def inorder_iterate(root):
 def preorder(root):
     res = []
     if root:
-        res.append(root.key)
+        res.append(root.val)
         res = res+ preorder(root.left)
         res = res+ preorder(root.right)
     return res
@@ -95,7 +95,7 @@ def postorder(root):
     if root:
         res = res+ postorder(root.left)
         res = res+ postorder(root.right)
-        res.append(root.key)
+        res.append(root.val)
     return res
 
 def postorder_iterative(root):
