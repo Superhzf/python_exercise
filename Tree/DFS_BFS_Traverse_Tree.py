@@ -52,7 +52,7 @@ def inorder(root):
         res = res + inorder(root.right)
     return res
 
-def inorder_iterate(root):
+def inorderIter(root):
     current = root
     stack = []
     res = []
@@ -66,6 +66,20 @@ def inorder_iterate(root):
             current = current.right
         else:
             break
+    return res
+
+def inorderIter2(root):
+    stack = []
+    res = []
+    curr = root
+    while curr is not None or len(stack) > 0:
+        if curr is not None:
+            stack.append(curr)
+            curr = curr.left
+        elif len(stack) > 0:
+            curr = stack.pop()
+            res.append(curr.val)
+            curr = curr.right
     return res
 
 # DFS: preorder: root, left, right
