@@ -40,6 +40,7 @@ def BFSRecur(queue: List[Node]) -> None:
         queue.append(curr.left)
     if curr.right is not None:
         queue.append(curr.right)
+    # Repeat at the end of this level
     BFSRecur(queue)
 
 # DFS: inorder: left, root, right
