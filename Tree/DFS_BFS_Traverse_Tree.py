@@ -1,4 +1,5 @@
 # https://www.geeksforgeeks.org/bfs-vs-dfs-binary-tree/
+from typing import List
 class Node:
     def __init__(self,x):
         self.key = x
@@ -28,6 +29,18 @@ def BFS(root):
             queue.append(temp.left)
         if temp.right:
             queue.append(temp.right)
+
+res = []
+def BFSRecur(queue: List[Node]) -> None:
+    if len(queue) <= 0:
+        return None
+    curr = queue.pop(0)
+    res.append(curr.val)
+    if curr.left is not None:
+        queue.append(curr.left)
+    if curr.right is not None:
+        queue.append(curr.right)
+    BFSRecur(queue)
 
 # DFS: inorder: left, root, right
 def inorder(root):
