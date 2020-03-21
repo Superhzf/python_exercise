@@ -19,10 +19,10 @@ class Solution:
                 parent[curr.right] = curr
                 stack.append(curr.right)
 
-        ancestors = set()
+        ancestors = []
 
         while p is not None:
-            ancestors.add(p)
+            ancestors.append(p)
             p = parent[p]
 
         while q not in ancestors:
