@@ -31,10 +31,10 @@ class Solution:
                 root = None
             elif root.right is not None:
                 root.val = self.successor(root)
-                root.right = self.deleteNode(root.right,root.val)
+                root.right = self.deleteNode(root.right,root.val) # delete the node and adjust the right subtree
             else:
                 root.val = self.predecessor(root)
-                root.left = self.deleteNode(root.left,root.val)
+                root.left = self.deleteNode(root.left,root.val) # delete the node and adjust the left subtree
 
         return root
 
