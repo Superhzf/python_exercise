@@ -24,6 +24,8 @@ class Codec:
 
             val = data.pop()
             root = TreeNode(val)
+            # Node that we MUST go from the right subtree to the left one
+            # because the data list pops out the value in stack style
             root.right = helper(val, upper)
             root.left = helper(lower, val)
             return root
