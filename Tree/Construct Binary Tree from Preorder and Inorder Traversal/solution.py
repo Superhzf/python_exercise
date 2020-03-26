@@ -12,9 +12,9 @@ class Solution:
         :type inorder: List[int]
         :rtype: TreeNode
         """
-        def helper(in_left = 0, in_right = len(inorder)):
+        def helper(in_left = 0, in_right = len(inorder)-1):
             # if there is no elements to construct subtrees
-            if in_left == in_right:
+            if in_left > in_right:
                 return None
 
             # pick up pre_idx element as a root
@@ -26,7 +26,7 @@ class Solution:
             index = idx_map[root_val]
 
             # build left subtree
-            root.left = helper(in_left, index)
+            root.left = helper(in_left, index-1)
             # build right subtree
             root.right = helper(index + 1, in_right)
             return root
