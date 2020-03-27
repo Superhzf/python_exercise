@@ -11,7 +11,8 @@ class Solution:
             else:
 			    # we found a 3th number that is not a candidate,
 				# instead of adding it to dict we lower the counts of the current candidates
-				# we keep candidates with counts higher than 1
+				# we keep candidates with counts higher than 1, the reason is that
+                # if v becomes 0, then it means at most it shows up 1/2
                 c = {k: v - 1 for k, v in c.items() if v > 1}
 
 		# check if the candidates occur more then L // 3 times
