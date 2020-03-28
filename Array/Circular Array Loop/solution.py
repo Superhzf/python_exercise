@@ -16,3 +16,10 @@ class Solution:
                 visited_index.append(curr_pos)
                 curr_pos = (curr_pos+nums[curr_pos])%size
         return False
+
+# Step 1: create a list to store all visited index
+# Step 2: Iterate nums and make sure it is not in the list created in step 1
+# Step 3: In each iteration, make sure that we are always moving forward or backward
+# Step 4: In each iteration, if we reach the same index before, if the cycle length
+# is larger than 1, then return True, else store this index to the list for this
+# cycle and store the index to the visited_index list too
