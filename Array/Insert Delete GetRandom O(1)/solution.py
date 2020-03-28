@@ -23,11 +23,11 @@ class RandomizedSet():
         """
         Removes a value from the set. Returns true if the set contained the specified element.
         """
-        if val in self.dict:
-            # move the last element to the place idx of the element to delete
-            last_element, idx = self.list[-1], self.dict[val]
-            self.list[idx], self.dict[last_element] = last_element, idx
-            # delete the last element
+        if val in self.list:
+            idx = self.dict[val]
+            last_ele = self.list[-1]
+            self.list[idx], self.list[-1] = self.list[-1], self.list[idx]
+            self.dict[val],self.dict[last_ele] = self.dict[last_ele], self.dict[val]
             self.list.pop()
             del self.dict[val]
             return True
