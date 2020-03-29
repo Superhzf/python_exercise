@@ -14,4 +14,4 @@ class Solution:
         return count
 
 # The key idea is that cumulative sum up to two indices is the same,
-# then the elements lying in between those indices
+# then the elements lying in between those indices is zero.
