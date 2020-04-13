@@ -87,6 +87,7 @@ def insertSort(arr):
             arr[j+1] = arr[j]
             j-=1
         arr[j+1]=key
+    return arr
 
 def insertionSortRecursive(arr,n):
     # base case
@@ -105,7 +106,7 @@ def insertionSortRecursive(arr,n):
     return arr
 
 # Quick sort
-# time complexity: O(nlog(n)), extra space: O()
+# time complexity: O(nlog(n)), extra space: O(log(n))
 def partition(arr,low,high):
     i = low - 1
     pivot = arr[high]
