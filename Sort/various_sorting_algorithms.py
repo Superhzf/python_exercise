@@ -65,7 +65,7 @@ def bubbleSort(arr):
                 arr[j],arr[j+1] = arr[j+1],arr[j]
     return arr
 
-def bubbleSortIter(arr):
+def bubbleSortRecur(arr):
     for i,index in enumerate(arr):
         try:
             if arr[i+1] < arr[i]:
