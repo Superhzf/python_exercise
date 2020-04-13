@@ -123,7 +123,8 @@ def quickSort(arr,low,high):
 
         quickSort(arr,low,pi-1)
         quickSort(arr,pi+1,high)
-
+        
+quickSort(arr,0,len(arr)-1)
 # Heap sort
 # time complexity: O(nlogn)
 def heapify(arr,n,i):
