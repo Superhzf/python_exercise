@@ -66,12 +66,12 @@ def bubbleSort(arr):
     return arr
 
 def bubbleSortRecur(arr):
-    for i,index in enumerate(arr):
+    for i,num in enumerate(arr):
         try:
             if arr[i+1] < arr[i]:
                 arr[i] = arr[i+1]
                 arr[i+1] = num
-                bubbleSortIter(list)
+                bubbleSortRecur(arr)
         except:
             pass
     return arr
