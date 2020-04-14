@@ -57,12 +57,14 @@ def selectionSort(arr):
 # Bubble sort
 # time complexity: O(n^2), extra space O(1)
 def bubbleSort(arr):
-    n = len(arr)
-    for i in range(n):
-        # after each round, the last element is always the biggest one
-        for j in range(n-i-1):
+    for i in range(len(arr)):
+        is_sorted = True
+        for j in range(len(arr)-1-i):
             if arr[j] > arr[j+1]:
-                arr[j],arr[j+1] = arr[j+1],arr[j]
+                is_sorted = False
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+        if is_sorted:
+            return arr
     return arr
 
 def bubbleSortRecur(arr):
@@ -123,6 +125,7 @@ def quickSort(arr,low,high):
 
         quickSort(arr,low,pi-1)
         quickSort(arr,pi+1,high)
+    return arr
 
 quickSort(arr,0,len(arr)-1)
 # Heap sort
