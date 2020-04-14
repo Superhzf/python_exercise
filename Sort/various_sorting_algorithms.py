@@ -60,7 +60,7 @@ def bubbleSort(arr):
     n = len(arr)
     for i in range(n):
         # after each round, the last element is always the biggest one
-        for j in range(0,n-i-1):
+        for j in range(n-i-1):
             if arr[j] > arr[j+1]:
                 arr[j],arr[j+1] = arr[j+1],arr[j]
     return arr
@@ -123,7 +123,7 @@ def quickSort(arr,low,high):
 
         quickSort(arr,low,pi-1)
         quickSort(arr,pi+1,high)
-        
+
 quickSort(arr,0,len(arr)-1)
 # Heap sort
 # time complexity: O(nlogn)
