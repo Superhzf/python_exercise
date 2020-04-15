@@ -134,7 +134,7 @@ def quickSort(arr,low,high):
 
 quickSort(arr,0,len(arr)-1)
 # Heap sort
-# time complexity: O(nlogn)
+# time complexity: O(nlogn) all the time, space complexity O(1)
 def heapify(arr: List[int], size: int, root: int) -> None:
     largest = root
     l = 2 * root + 1
@@ -154,7 +154,7 @@ def heapSort(arr: List[int]) -> List[int]:
     size = len(arr)
 
     # Build a max heap from arr
-    for i in range(size,-1,-1):
+    for i in range(size-1,-1,-1):
         heapify(arr,size,i)
 
     # do some sorting
