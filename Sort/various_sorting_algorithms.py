@@ -44,7 +44,9 @@ def mergeSort(arr):
     return arr
 
 # selection sort
-# time complexity: O(n^2), extra space: O(1)
+# time complexity: O(n^2) all the time, extra space: O(1)
+# selection: select the least element in the right side of i and put in i's
+# left side, the left side of i is always sorted
 def selectionSort(arr):
     for i in range(len(arr)):
         min_idx = i
@@ -80,6 +82,9 @@ def bubbleSortRecur(arr):
 
 # Insertion sort
 # time complexity: O(n^2), extra space: O(1)
+# Insert： elements in the left side of i is sorted, we iterate it's right side
+# and insert each element in the right side to the correct position in the left
+# side
 def insertSort(arr):
     for i in range(1,len(arr)):
         key = arr[i]
