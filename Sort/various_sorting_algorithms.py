@@ -135,26 +135,22 @@ def quickSort(arr,low,high):
 quickSort(arr,0,len(arr)-1)
 # Heap sort
 # time complexity: O(nlogn)
-def heapify(arr,size,root):
-    # To heapify subtree rooted at index i
-    # n is the size of heap
-    largest = root # initialize largest as root
-    l = 2 * root + 1 # left child
-    r = 2 * root + 2 # right child
+def heapify(arr: List[int], size: int, root: int) -> None:
+    largest = root
+    l = 2 * root + 1
+    r = 2 * root + 2
 
-    if l < size and arr[root] < arr[l]:
+    if l < size and arr[l] > arr[root]:
         largest = l
 
-    if r < size and arr[largest] < arr[r]:
+    if r < size and arr[r] > arr[largest]:
         largest = r
 
-    # change root if needed
     if largest != root:
-        arr[root],arr[largest] = arr[largest],arr[root]
-        heapify(arr,size,largest)
+        arr[root], arr[largest] = arr[largest], arr[root]
+        heapify(arr, size, largest)
 
-
-def heapSort(arr):
+def heapSort(arr: List[int]) -> List[int]:
     size = len(arr)
 
     # Build a max heap from arr
