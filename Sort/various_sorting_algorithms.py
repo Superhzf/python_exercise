@@ -136,6 +136,7 @@ quickSort(arr,0,len(arr)-1)
 # Heap sort
 # time complexity: O(nlogn) all the time, space complexity O(1)
 def heapify(arr: List[int], size: int, root: int) -> None:
+    # time complexity of heapify = O(log(n))
     largest = root
     l = 2 * root + 1
     r = 2 * root + 2
