@@ -163,3 +163,52 @@ def heapSort(arr: List[int]) -> List[int]:
         heapify(arr,i,0)
 
     return arr
+
+
+# Sort a linked list
+# this is a classic problem from LeetCode: https://leetcode.com/problems/sort-list/
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+class Solution:
+    # @param {ListNode} head
+    # @return {ListNode}
+    def sortList(self, head):
+        if head is None or head.next is None:
+            return head
+
+        slow = head
+        fast = head.next
+
+        while fast is not None and fast.next is not None:
+            fast = fast.next.next
+            slow = slow.next
+
+        right = self.sortList(slow.next)
+        slow.next = None
+        left = self.sortList(head)
+
+        return self.merge(left, right)
+
+    def merge(self, l1, l2):
+        dummy = ListNode(0)
+        cur = dummy
+
+        while l1 is not None and l2 is not None:
+            if l1.val <= l2.val:
+                cur.next = l1
+                l1 = l1.next
+            else:
+                cur.next = l2
+                l2 = l2.next
+            cur = cur.next
+
+        if l1 is not None:
+            cur.next = l1
+
+        if l2 is not None:
+            cur.next = l2
+
+        return dummy.next
