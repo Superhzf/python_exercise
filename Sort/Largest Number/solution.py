@@ -46,3 +46,6 @@ class Solution:
         if len(nums) == 1:
             return ''.join(map(str,nums))
         return self.mergeSort(nums)
+
+# I solved this problem myself but it took me some time
+# just want to write it down
