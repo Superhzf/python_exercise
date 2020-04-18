@@ -180,6 +180,7 @@ class Solution:
             return head
 
         slow = head
+        # I'm not sure wht fast = head does not work
         fast = head.next
 
         while fast is not None and fast.next is not None:
