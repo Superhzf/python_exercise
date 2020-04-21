@@ -41,3 +41,9 @@ class Solution:
         output = []
         backtrack()
         return output
+
+# time complexity: O(n!): There is N possibilities to put the first queen,
+# not more than N (N - 2) to put the second one, not more than N(N - 2)(N - 4)
+# for the third one etc. In total that results in \mathcal{O}(N!)O(N!) time complexity.
+
+# Space complexity: O(n)
