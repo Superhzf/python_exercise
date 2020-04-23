@@ -31,3 +31,6 @@ class Solution:
         segments = []
         backtrack()
         return output
+
+# time complexity: O(1) because there are less than 27 possibilities to check
+# space: O(1), there are less than 19 valid IP addresses to keep
