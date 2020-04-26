@@ -1,19 +1,19 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
 
-        def backtrack(first=0, curr=[]):
+        def backtrack(first = 0):
             if len(curr) == k:
                 output.append(curr[:])
-
-            for i in range(first,n):
+                return
+            for i in range(first, len(nums)):
                 curr.append(nums[i])
-                backtrack(i+1, curr)
+                backtrack(i+1)
                 curr.pop()
 
         output = []
-        n = len(nums)
-        for k in range(n+1):
-            # k: the length of the subset
+        curr = []
+        for k in range(len(nums) + 1):
             backtrack()
         return output
+
 # The key is how to define the backracking function.
