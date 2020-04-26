@@ -16,7 +16,8 @@ class Solution:
         return ans
 # The idea is that only add them when we know it will remain a valid sequence.
 # We can do this by keeping track of the number of opening and closing brackets
-# we have placed so far.
+# we have placed so far. This is not a standard backtracking problem because we
+# do not check validation.
 
 # Time complexity:
 # The way I like to think about the runtime of backtracking algorithms is O(b^d),

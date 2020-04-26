@@ -1,6 +1,6 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-
+        # first is the first changable element
         def backtrack(first = 0):
             # if all integers are used up
             if first == n:
@@ -18,4 +18,3 @@ class Solution:
         output = []
         backtrack()
         return output
-    
