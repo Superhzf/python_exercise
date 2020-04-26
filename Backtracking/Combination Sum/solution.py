@@ -22,16 +22,17 @@ class Solution:
 
 # Backtracking solution
 def combinationSumBT(candidates: List[int], target: int) -> List[List[int]]:
-    def backtrack(cans, remain, path):
-        for i, can in enumerate(cans):
-            if remain - can == 0:
-                solutions.append(path+[can])
-            elif remain - can > 0:
-                backtrack(cans[i:], remain-can, path+[can])
+    def backtrack(cans, target, path):
+        for idx, can in enumerate(cans):
+            if target - can == 0:
+                output.append(path + [can])
+                break
+            elif target - can > 0:
+                backtrack(cans[idx:], target - can, path+[can])
 
-    solutions=[]
+    output = []
+    candidates = sorted(candidates)
     backtrack(candidates, target, [])
-    return solutions
-
+    return output
 # This problem can be solved by either DP or backtracking
 #
