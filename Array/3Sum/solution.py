@@ -10,8 +10,8 @@ class Solution:
             target = - nums[i]
             j = i + 1
             while j < len(nums):
-                if nums[j] in dic:
-                    idx = dic[nums[j]]
+                if target - nums[j] in dic:
+                    idx = dic[target - nums[j]]
                     result.append([nums[i], nums[idx], nums[j]])
                     while i < len(nums) - 1 and nums[i] == nums[i+1]:
                         i += 1
@@ -20,7 +20,10 @@ class Solution:
                 else:
                     # key means the key plus a number can be equal to target
                     # value j is the index of the number
-                    dic[target - nums[j]] = j
+                    dic[nums[j]] = j
                 j += 1
             i += 1
         return result
+
+# The idea is for each num in nums, find out whether the rest can be
+# sum up to -num. Using dic instead of list is that dict is faster.
