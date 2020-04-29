@@ -1,21 +1,24 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals = sorted(intervals, key=lambda x:x[0])
+        intervals = sorted(intervals)
         size = len(intervals)
-        for idx in range(size - 1):
-            if intervals[idx] != 'delete':
-                if intervals[idx][1] >= intervals[idx+1][0]:
-                    if intervals[idx+1][1] > intervals[idx][1]:
-                        intervals[idx+1] = [intervals[idx][0],intervals[idx+1][1]]
-                        intervals[idx] = 'delete'
-                    else:
-                        intervals[idx+1] = 'delete'
-                        intervals[idx+1],intervals[idx] = intervals[idx], intervals[idx+1]
+        i = 0
+        while i < size - 1:
+            if intervals[i][1] >= intervals[i+1][1]:
+                intervals.pop(i+1)
+                size -= 1
+                continue
+            elif intervals[i][1] >= intervals[i+1][0]:
+                intervals[i] = [intervals[i][0],intervals[i+1][1]]
+                intervals.pop(i+1)
+                size -= 1
+                continue
+            i += 1
+        return intervals
 
-        return [k for k in intervals if k != 'delete']
+
 
 # I solved this problem myself
 # Step 1: sort the intervals based on the left side
 # Step 2: compare intervals with it's next one, if right side interval[idx] >=
-# the left side of interval[idx+1], then combine them, 'delete' is used as the
-# place holder to make sure the idx is correct
+# the left side of interval[idx+1], then combine them,
