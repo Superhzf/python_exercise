@@ -21,7 +21,7 @@ class Solution:
 
 
 # Backtracking solution
-def combinationSumBT(candidates: List[int], target: int) -> List[List[int]]:
+def combinationSumBT(self, candidates: List[int], target: int) -> List[List[int]]:
     def backtrack(cans, target, path):
         for idx, can in enumerate(cans):
             if target - can == 0:
