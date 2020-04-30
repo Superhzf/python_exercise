@@ -36,3 +36,24 @@ def combinationSumBT(candidates: List[int], target: int) -> List[List[int]]:
     return output
 # This problem can be solved by either DP or backtracking
 #
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        def backtrack(c_list, target, subset):
+            for idx, c in enumerate(c_list):
+                if target - c == 0:
+                    # we cannt do subset.append(c) here
+                    # because subset is an object, if we do subset.pop()
+                    # output will be affected
+                    output.append(subset+[c])
+                    break
+                elif target - c > 0:
+                    subset.append(c)
+                    backtrack(c_list[idx:], target - c, subset)
+                    # If we append c to subset, then we have to pop out the last element
+                    subset.pop()
+
+        output = []
+        candidates = sorted(candidates)
+        backtrack(candidates, target, [])
+        return output
