@@ -1,29 +1,30 @@
 class Solution:
-    # returns leftmost (or rightmost) index at which `target` should be inserted in sorted
-    # array `nums` via binary search.
-    def extreme_insertion_index(self, nums, target, left):
-        lo = 0
-        hi = len(nums)-1
-
-        # The iteration will end as soon as lo == hi
-        while lo <= hi:
-            mid = (lo + hi) // 2
-            if nums[mid] > target or (left is True and target == nums[mid]):
-                hi = mid - 1
-            else:
-                lo = mid+1
-
-        return lo
-
 
     def searchRange(self, nums, target):
 
+        if len(nums) == 1:
+            if nums[0] == target:
+                return [0,0]
+            else:
+                return [-1, -1]
 
-        left_idx = self.extreme_insertion_index(nums, target, True)
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                left = mid
+                right = mid
+                while left >=0 and nums[left] == target:
+                    left -= 1
+                while right < len(nums) and nums[right] == target:
+                    right += 1
 
-        # assert that `left_idx` is within the array bounds and that `target`
-        # is actually in `nums`.
-        if left_idx == len(nums) or nums[left_idx] != target:
-            return [-1, -1]
+                return [left + 1, right - 1]
 
-        return [left_idx, self.extreme_insertion_index(nums, target, False)-1]
+            elif target > nums[mid]:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return [-1, -1]

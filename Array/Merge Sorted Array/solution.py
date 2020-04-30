@@ -27,3 +27,4 @@ class Solution:
 
         nums1[:p2+1] = nums2[:p2+1]
 # The solution 2 uses two pointers approach which is more formal
+# The idea for this problem is starting from the right side
