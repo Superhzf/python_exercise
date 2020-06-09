@@ -27,13 +27,10 @@ class Solution:
             dp[0][j] = int(matrix[0][j])
 
 
-
         for i in range(1,row):
             for j in range(1,col):
                 if int(matrix[i][j])>0:
                     dp[i][j] = min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])+1
-                else:
-                    dp[i][j] = 0
                 if dp[i][j] * dp[i][j] > max_square:
                     max_square = dp[i][j] * dp[i][j]
         return max_square
@@ -45,3 +42,10 @@ class Solution:
 # 1 0 1 1 1
 # 1 1 1 1 1
 # 1 0 0 1 0
+
+
+# 1. overlapped sub-problems
+# To solve this problem, maxtrix[row][n], we can solve matrix[row][col-1],
+# matrix[row-1][col], matrix[row-1][col-1]
+# 2. the optimized sub-structure and state transformation:
+# dp[i][j] = min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])+1
