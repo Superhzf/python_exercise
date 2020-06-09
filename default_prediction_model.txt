@@ -1,1 +1,0 @@
-{"model_parameters": {"CNT_CHILDREN": -0.01, "AMT_INCOME_TOTAL": 0.05}, "metadata": {"model_version": "1", "model_description": "This is the test model"}}
