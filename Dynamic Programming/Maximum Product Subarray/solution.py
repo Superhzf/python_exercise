@@ -18,3 +18,5 @@ class Solution:
 # we have to take negative product at each step
 # because the product of two negatives could be positive later
 # [2,3,-2,4]
+# The reason that we do not create a dp table is that curr value only depends
+# on the value that immediately previous to it.
