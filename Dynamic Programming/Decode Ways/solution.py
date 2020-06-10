@@ -18,9 +18,18 @@ class Solution:
 
         return num_decode[-1]
 
-# for example s ='123'
-# The idea is that we start from the left,
-# 已知'1'只有一种情况
-# ‘12’ 有1,2和12两种情况
-# '123'的结果基于上面的两种情况，将12视为一个整体，3自己一个整体；将23视为一个整体
-# number_decode[i] shows that how many decoding methods are for s[:i-1]
+
+# enumerate all possible solutions:
+# Suppose the input is 1234567, then the solution tree could be like this:
+#                       1234
+#                   /   |      \
+#                1,234 12,34    123,4
+#               /
+#              12,34
+# so we can see that we have to solve 34 twice.
+# 1. overlapped sub-problems
+# As it is described above
+# 2. the optimized sub-structure and state trasnformation:
+# dp[i] shows the number of different decoding ways for s[0:i]
+# dp[i] = dp[i-1] + dp[i-2] if 10<=s[i-1:i+2] <=26
+# dp[i] = dp[i-1] else 
