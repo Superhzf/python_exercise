@@ -36,3 +36,20 @@ class Solution(object):
 # 1.Bottom-up,
 # 2.same col, row length
 # 3.modify the original triangle
+# we start from enumerating all potential solutions: from bottom to up:
+# [
+#      [2],
+#     [3,4],
+#    [6,5,7],
+#   [4,1,8,3]
+# ]
+# g[i][j] means the minimum sum path arriving matrix[i][j]
+#               g[0][0]
+#       g[1][0]        g[1][1]
+#   ... g[2][1] ...           ...   g[2,1] ...
+# So, matrix[2][1] has to be calculated twice.
+# 1. overlapped sub-problems
+# as described above
+# 2. the optimized sub-structure and state trasnformation:
+# triangle[i][j] shows that the minimum sum path arriving matrix[i][j]
+# so triangle[row - 1][i] += min(triangle[row][i], triangle[row][i+ 1])
