@@ -32,5 +32,4 @@ class Solution:
 # ugly_num_list中的数是由2，3，5不断的和2，3，5以及他们的乘积再相乘得到的
 # 每一个ugly number都是上述乘积中，比上个ugly number大的最小的数
 # i2(i3,i5)表示ugl_num_list中最近一次和2(3,5)相乘的ugly number的坐标
-# It is hard for me to understand this as a DP problem
-# because I cannot find the overlapped sub-problems.
+# It is hard for me to consider this as a DP problem
