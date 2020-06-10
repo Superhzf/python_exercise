@@ -16,10 +16,17 @@ class Solution:
                     dp[i][j] = max(dp[i-1][j],dp[i][j-1])
 
         return dp[-1][-1]
-# dp[i][j] means longest common subquence between text1[:i] and text2[:j]
-# For example, text1 = 'abcde', text2 = 'ace'
-#     a b c d e
-#   0 0 0 0 0 0
-# a 0 1 1 1 1 1
-# c 0 1 1 2
-# d 0
+ # we start from enumerating all valid solutions:
+ #          s1 = abcde s2 = ace
+ #     s1 = abcd s2 = ac
+ # abc, ac          abcd a
+ #  ab a               abc a
+ #   ...                  ab a
+ # so, we have to calculate the LCS between 'ab' and 'a' twice
+ # we can see that 7 has to be calculated two times
+ # 1. overlapped sub-problems
+ # 2. the optimized sub-structure and state trasnformation:
+ # dp[i][j] shows that LCS between s1[:i] and s2[:j]
+ # dp[i][j] = dp[i-1][j-1] if s[i] == s[j]
+ # dp[i][j] = max(dp[i-1][j], dp[i][j-1]) else
+ 
