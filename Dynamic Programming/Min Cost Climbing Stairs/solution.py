@@ -14,7 +14,21 @@ class Solution:
 
         return min_cost_list[-1]
 
+# Solution two
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
 
-# I successfully solved this problem myself
-# I just want to say that this problem is pretty much the same as House Robber problem.
-# So, the bottom line here is to truely understand this kind of problem
+        size = len(cost)
+        if size <= 2:
+            return min(cost)
+        f1 = cost[0]
+        f2 = cost[1]
+        for i in range(2, size):
+            curr_cost = cost[i] + min(f1,f2)
+            f1 = f2
+            f2 = curr_cost
+        return min(f1, f2)
+
+# f1 and f2 shows that the least cost to step through the current floor
+# since we only care about the least cost to the previous two floors so
+# we only need f1 and f2 instead of a DP table
