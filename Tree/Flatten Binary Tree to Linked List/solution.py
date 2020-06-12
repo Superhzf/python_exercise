@@ -27,3 +27,9 @@ class Solution:
         Do not return anything, modify root in-place instead.
         """
         self.flattenTree(root)
+
+# leftTail is the The tail node of the flattened out left subtree
+# What does the current node do?
+# Assuming we have already transformed the left and the right halves of a given
+# root node.The current node should put the left tail node point to the right tree
+# and the right tree of the current node should be it's left tree.
