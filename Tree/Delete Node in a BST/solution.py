@@ -1,48 +1,41 @@
 # Definition for a binary tree node.
 # class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def successor(self,root):
-        root = root.right
-        while root.left is not None:
-            root = root.left
-        return root.val
-
-    def predecessor(self,root):
-        root = root.left
-        while root.right is not None:
-            root = root.right
-        return root.val
-
     def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
         if root is None:
             return None
-        # delete from the right subtree
-        if key > root.val:
-            root.right = self.deleteNode(root.right,key)
-        elif key < root.val:
-            root.left = self.deleteNode(root.left,key)
-        else:
+        if root.val == key:
             if root.left is None and root.right is None:
-                root = None
-            elif root.right is not None:
-                root.val = self.successor(root)
-                root.right = self.deleteNode(root.right,root.val) # delete the node and adjust the right subtree
+                return None
+            elif root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
             else:
-                root.val = self.predecessor(root)
-                root.left = self.deleteNode(root.left,root.val) # delete the node and adjust the left subtree
+                minNode = self.getMin(root.right)
+                root.val = minNode.val
+                root.right = self.deleteNode(root.right, minNode.val)
+        elif key > root.val:
+            root.right = self.deleteNode(root.right, key)
+        else:
+            root.left = self.deleteNode(root.left, key)
 
         return root
 
-# The solution to problem should take the advantage of BST
-# The successor after deleting the key value is the smallest value that is larger
-# than it
-# The predecessor after deleting the key value is the largest value that is smaller
-# than it
-# The reason to think about successor and predecessor is that if the right sub-tree
-# is not none, we adjust the right sub-tree which uses successor, otherwise, we
-# use predecessor
+    def getMin(self, root):
+        while(root.left is not None):
+            root = root.left
+        return root
+
+# What does the current node do?
+# Checkout whether current node is equal to the key, if yes, then we have 3 situatios:
+# 1. The current node does not have any children
+# 2. The current node only has one child:
+#   Put that child as the current node's successor
+# 3. The current node has two children.
+#   Find the min node of it's right tree, that value would be the new value
+#   Delete that value from the right tree
