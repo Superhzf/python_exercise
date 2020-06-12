@@ -31,3 +31,22 @@ class Solution:
             q.append(t2.left)
 
         return True
+
+class Solution:
+    def isSymmetric(self, root: TreeNode) -> bool:
+        if root is None:
+            return True
+        return self.isMirror(root, root)
+
+    def isMirror(self, t1: TreeNode, t2: TreeNode) -> bool:
+        if t1 is None and t2 is None:
+            return True
+        if t1 is None or t2 is None:
+            return False
+        if t1.val!=t2.val:
+            return False
+        return self.isMirror(t1.left, t2.right) & self.isMirror(t1.right, t2.left)
+
+# What does the current node do?
+# To compare whether the corresponding nodes are the same
+# we need a helper function to show the two corresponding nodes.
