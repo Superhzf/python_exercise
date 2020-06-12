@@ -32,9 +32,37 @@ class Solution:
 
         return None
 
+# The recursion version
+class Solution:
+    def inorderSuccessor(self, root: 'TreeNode', p: 'TreeNode') -> 'TreeNode':
+        if root is None:
+            return
+        if p.right is not None:
+            res = p.right
+            while res.left is not None:
+                res = res.left
+            return res
+
+        self.p = p
+        self.res = None
+        self.inorder(root, False)
+        return self.res
+
+    def inorder(self, root, stop=False):
+        tra = []
+        if root is not None and not stop:
+            tra = self.inorder(root.left, stop)
+            if len(tra) > 0 and tra[-1] == self.p.val:
+                self.res = root
+                stop = True
+            tra.append(root.val)
+            tra += self.inorder(root.right, stop)
+        return tra
+
+
 # The easy but slow solution is traverse the tree using inorder style and find
 # the node after p
 
 # The second solution is that we traverse the tree in inorder style (iteratively),
-# and at the same time write down the value of current node, if the next node is
+# and at the same time write down the value of current node, if the previous node is
 # what we want to delete, then return the current node
