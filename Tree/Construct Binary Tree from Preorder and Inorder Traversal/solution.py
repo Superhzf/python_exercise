@@ -34,3 +34,31 @@ class Solution:
         # build a hashmap value -> its index
         idx_map = {val:idx for idx, val in enumerate(inorder)}
         return helper()
+
+# my solution which is easier to understand but slower.
+class Solution:
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: TreeNode
+        """
+        if len(preorder) == 0:
+            return None
+        root = TreeNode(preorder[0])
+
+        for idx, ele in enumerate(inorder):
+            if ele == root.val:
+                left_tree_in = inorder[:idx]
+                right_tree_in = inorder[idx+1:]
+                break
+
+        left_tree_pre = preorder[1:len(left_tree_in)+1]
+        right_tree_pre = preorder[len(left_tree_in)+1:]
+
+        root.left = self.buildTree(left_tree_pre, left_tree_in)
+        root.right = self.buildTree(right_tree_pre, right_tree_in)
+        return root
+
+# 1.What does the current node do?
+# Find the root node and the preorder and inorder for the left and right sub-trees
