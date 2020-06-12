@@ -123,3 +123,39 @@ def postorder_iterative(root):
     return res[::-1]
 
 # BFS vs DFS, when to use what?
+
+# level order traversal:
+class Solution:
+    def LevelOrder(self, root):
+        #inspired by the solution somewhat
+        out = []
+        def rec(node, height):
+            if node:
+                if len(out) <= height:
+                    out.append([])
+                out[height].append(node.val)
+                rec(node.left, height + 1)
+                rec(node.right, height + 1)
+        rec(root, 0)
+        return out
+# this solution is very simple by adding a parameter height to let
+# the function know which level the element should be.
+
+class Solution:
+    def zigzagLevelOrder(self, root: TreeNode) -> List[List[int]]:
+        self.ans = []
+        self.helper(root)
+        return self.ans
+
+    def helper(self, root):
+        if root is None:
+            return
+        queue = [root]
+        while(len(queue) > 0):
+            curr_node = queue.pop(0)
+            self.ans.append(curr_node.val)
+
+            if curr_node.left is not None:
+                queue.append(curr_node.left)
+            if curr_node.right is not None:
+                queue.append(curr_node.right)

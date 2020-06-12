@@ -60,5 +60,5 @@ class Solution:
         root.right = self.buildTree(right_tree_pre, right_tree_in)
         return root
 
-# 1.What does the current node do?
+# What does the current node do?
 # Find the root node and the preorder and inorder for the left and right sub-trees
