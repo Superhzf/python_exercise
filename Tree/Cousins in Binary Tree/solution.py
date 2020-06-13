@@ -50,6 +50,6 @@ class Solution:
 
 # The idea is to find x and y and check whether they have the same parents
 # What does the current node do?
-# Checkout whether the current node is x or y. If both x and y is found and they
+# Checkout whether the current node is x or y. If both x and y are found and they
 # are at the same depth, then checkout whether they are siblings, if not, set
 # self.is_cousin to be True.
