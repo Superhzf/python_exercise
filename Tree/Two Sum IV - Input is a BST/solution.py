@@ -8,27 +8,18 @@
 
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        output = []
-        self.inorder(root,output)
-        l,r = 0 ,len(output) - 1
-        while l < r:
-            Sum = output[l] + output[r]
-            if Sum == k:
+        stack = [root]
+        traverse = set()
+        while stack:
+            curr = stack.pop()
+            if k-curr.val in traverse:
                 return True
             else:
-                if Sum < k:
-                    l += 1
-                else:
-                    r -= 1
+                traverse.add(curr.val)
+
+            if curr.left:
+                stack.append(curr.left)
+            if curr.right:
+                stack.append(curr.right)
+
         return False
-
-    def inorder(self,root,output):
-        if root == None:
-            return
-        else:
-            self.inorder(root.left,output)
-            output.append(root.val)
-            self.inorder(root.right,output)
-
-# The ieda is simple, traverse the tree in an inorder style and then find out
-# in the list
